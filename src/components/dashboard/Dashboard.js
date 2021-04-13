@@ -1,16 +1,73 @@
-import Reac, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import { initialMovies } from "../../actions/movies";
+import axios from "axios";
 
+const entUrl =
+  "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/";
 const Dashboard = (props) => {
+  const [formData, setFormData] = useState({
+    title: "",
+    programType: "",
+  });
+  const { title, programType } = formData;
+  const getItemData = async () => {
+    // const options = {
+    //   method: "GET",
+    //   url:
+    //     "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/search/",
+    //   params: { Title: { formData }, ProgramTypes: { formData } },
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    // };
+    const options = {
+      headers: {
+        "content-type": "application/json",
+        "x-rapidapi-key": "529528fe49mshb79e1f661d36214p1d26d5jsn10cb7da958c2",
+        "x-rapidapi-host":
+          "ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com",
+      },
+    };
+    try {
+      const response = await axios.get(entUrl + formData, options);
+      console.log(response);
+    } catch (error) {
+      console.log("Incorrect");
+    }
+    // .then(function (response) {
+    //   // const res = response;
+
+    //   return JSON.stringify(response);
+    // });
+  };
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    getItemData(title, programType);
+  };
+
   return (
     <>
       <div className="dashboard">Dashboard</div>
       <div className="search">
-        <input type="text" placeholder="ex: Lion King" />
-        <button>Search</button>
-        <input type="text" placeholder="ex: Movie" />
-        <button>Search</button>
+        <form id="search" onSubmit={(e) => onSubmit(e)}>
+          <input
+            type="text"
+            name="title"
+            placeholder="ex: Lion King"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="programType"
+            placeholder="ex: Movie"
+            onChange={handleChange}
+          />
+          <button type="submit">Search</button>
+        </form>
       </div>
     </>
   );
