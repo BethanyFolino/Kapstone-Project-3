@@ -22,12 +22,12 @@ const Login = ({ login, isAuthenticated }) => {
 
   //Redirect if logged in
   if (isAuthenticated) {
-    return <Redirect to="/home" />;
+    return <Redirect to="/dashboard" />;
   }
   return (
     <Fragment>
       <div container>
-        <h7>Sign In here</h7>
+        <h7>Login here</h7>
         {/* {fullySignedUp && <div>You are now signed up and logged in!</div>} */}
         <form id="signin-form" onSubmit={(e) => onSubmit(e)}>
           <label>Email</label>
@@ -50,7 +50,7 @@ const Login = ({ login, isAuthenticated }) => {
             required
           />
           {/* {!fullySignedUp && <button type="submit">Sign Up</button>} */}
-          <button type="submit">Sign Up</button>
+          <button type="submit">Login</button>
         </form>
       </div>
     </Fragment>
