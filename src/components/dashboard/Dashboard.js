@@ -7,20 +7,11 @@ const entUrl =
   "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/";
 const Dashboard = (props) => {
   const [formData, setFormData] = useState({
-    title: "",
-    programType: "",
+    Title: "",
+    ProgramTypes: "",
   });
-  const { title, programType } = formData;
+  const { Title, ProgramTypes } = formData;
   const getItemData = async () => {
-    // const options = {
-    //   method: "GET",
-    //   url:
-    //     "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/search/",
-    //   params: { Title: { formData }, ProgramTypes: { formData } },
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    // };
     const options = {
       headers: {
         "content-type": "application/json",
@@ -32,6 +23,7 @@ const Dashboard = (props) => {
     try {
       const response = await axios.get(entUrl + formData, options);
       console.log(response);
+      return response;
     } catch (error) {
       console.log("Incorrect");
     }
@@ -46,7 +38,7 @@ const Dashboard = (props) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    getItemData(title, programType);
+    getItemData(Title, ProgramTypes);
   };
 
   return (
@@ -56,13 +48,13 @@ const Dashboard = (props) => {
         <form id="search" onSubmit={(e) => onSubmit(e)}>
           <input
             type="text"
-            name="title"
+            name="Title"
             placeholder="ex: Lion King"
             onChange={handleChange}
           />
           <input
             type="text"
-            name="programType"
+            name="ProgramType"
             placeholder="ex: Movie"
             onChange={handleChange}
           />
@@ -76,3 +68,13 @@ const Dashboard = (props) => {
 Dashboard.propTypes = {};
 
 export default Dashboard;
+
+// const options = {
+//   method: "GET",
+//   url:
+//     "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/search/",
+//   params: { Title: { formData }, ProgramTypes: { formData } },
+//   headers: {
+//     "content-type": "application/json",
+//   },
+// };

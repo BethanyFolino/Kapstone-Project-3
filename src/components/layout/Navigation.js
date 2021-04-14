@@ -16,18 +16,26 @@ const Navigation = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
   const guestLinks = (
     <Nav className="mr-auto">
-      <Link to="/">Home</Link>
+      <Link to="/" style={{ marginRight: "12px", color: "gold" }}>
+        Home
+      </Link>
 
-      <Link to="/register">Register</Link>
+      <Link to="/register" style={{ marginRight: "12px", color: "gold" }}>
+        Register
+      </Link>
 
-      <Link to="/login">Login</Link>
-      <Link to="/">Sign Out</Link>
+      <Link to="/login" style={{ marginRight: "12px", color: "gold" }}>
+        Login
+      </Link>
+      <Link to="/" style={{ color: "gold" }}>
+        Sign Out
+      </Link>
     </Nav>
   );
 
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand>App Name</Navbar.Brand>
+      <Navbar.Brand style={{ color: "gold" }}>MMG</Navbar.Brand>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
       )}
