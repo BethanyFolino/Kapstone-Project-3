@@ -7,7 +7,7 @@ import SearchResults from "../layout/SearchResults";
 const entUrl =
   "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/";
 const Dashboard = (props) => {
-  const [initialMovies, setInitialMovies] = useState({ Score: "" });
+  const [initialMovies, setInitialMovies] = useState([]);
   useEffect(() => {
     fetch(
       "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/?Title=Lion%20King&ProgramType=Movie",
@@ -23,12 +23,13 @@ const Dashboard = (props) => {
       }
     )
       .then((response) => {
-        //deconstruct response 
+        //deconstruct response
         //deconstruct.json()
         //setInitialMovies(deconstruct);
         console.log(response);
         response.json().then((data) => {
-          setInitialMovies(data);
+          setInitialMovies(data.ProgramMatches);
+          console.log(data.ProgramMatches);
         });
       })
       .catch((err) => {
@@ -38,9 +39,12 @@ const Dashboard = (props) => {
   return (
     <>
       <div className="dashboard">Dashboard</div>
-      <div className="initial-movies">{initialMovies.map((movie) => { 
+      {/* <div className="initial-movies">{initialMovies.map((movie) => { 
         return (<div>{movie.Score}</div>)
-      })}</div>
+      })}</div> */}
+      {initialMovies.map((movie) => {
+        return movie.Title;
+      })}
       <div className="search">
         <SearchResults />
       </div>
