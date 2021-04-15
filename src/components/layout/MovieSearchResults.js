@@ -1,46 +1,19 @@
 import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { initialMovies } from "../../actions/movies";
+import Movie from "../layout/Movie";
 // import axios from "axios";
 
 const entUrl =
   "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/";
-const SearchResults = (props) => {
+const MovieSearchResults = (props) => {
   const [formData, setFormData] = useState({
     Title: "",
-    ProgramTypes: "",
   });
-  const { Title, ProgramTypes } = formData;
-
-  // we can use this useEffect to (randomly) cycle through "top 5 movies"
-  useEffect(() => {
-    fetch(
-      `https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/?Title=${Title}&ProgramType=Movie`,
-      {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-          "x-rapidapi-key":
-            "529528fe49mshb79e1f661d36214p1d26d5jsn10cb7da958c2",
-          "x-rapidapi-host":
-            "ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com",
-        },
-      }
-    )
-      .then((response) => {
-        console.log(response);
-        response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+  const { Title } = formData;
 
   // this will be where we make it dynamic based upon state
-  const getItemData = (Title, Program) => {
+  const getItemData = (Title) => {
     fetch(
       `https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/?Title=${Title}&ProgramType=Movie`,
       {
@@ -56,7 +29,9 @@ const SearchResults = (props) => {
     )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.ProgramMatches);
+        const data = response.ProgramMatches;
+        console.log(data);
+        setFormData(data);
       })
       .catch((err) => {
         console.error(err);
@@ -67,12 +42,12 @@ const SearchResults = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    getItemData(Title, ProgramTypes);
+    getItemData(Title);
   };
 
   return (
     <>
-      <div className="searchresults">Search Results</div>
+      <div className="moviesearchresults">Search for your favorite movie!</div>
       <div className="search">
         <form id="search" onSubmit={(e) => onSubmit(e)}>
           <input
@@ -81,19 +56,15 @@ const SearchResults = (props) => {
             placeholder="ex: Lion King"
             onChange={handleChange}
           />
-          <input
-            type="text"
-            name="ProgramType"
-            placeholder="ex: Movie"
-            onChange={handleChange}
-          />
+
           <button type="submit">Search</button>
         </form>
       </div>
+      <div>{formData.length >= 0 && formData.map((movie) => <Movie key={movie.Id} {...movie}/>)}</div>
     </>
   );
 };
 
-SearchResults.propTypes = {};
+MovieSearchResults.propTypes = {};
 
-export default SearchResults;
+export default MovieSearchResults;

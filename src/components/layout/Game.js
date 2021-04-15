@@ -1,8 +1,8 @@
 import React from "react";
 
-const Movie = ({ Title, Summary, IvaRating, Year }) => (
+const Game = ({ Title, Summary, IvaRating, Year }) => (
   // { const data = Summary.Image}
-  <div className="movie">
+  <div className="game">
     {" "}
     <h1>{Title}</h1>
     <h2>Released {Year}</h2>
@@ -11,4 +11,4 @@ const Movie = ({ Title, Summary, IvaRating, Year }) => (
   </div>
 );
 
-export default Movie;
+export default Game;
