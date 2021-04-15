@@ -15,7 +15,7 @@ const SearchResults = (props) => {
   // we can use this useEffect to (randomly) cycle through "top 5 movies"
   useEffect(() => {
     fetch(
-      "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/?Title=Lion%20King&ProgramType=Movie",
+      `https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/?Title=${Title}&ProgramType=Movie`,
       {
         method: "GET",
         headers: {
@@ -29,9 +29,10 @@ const SearchResults = (props) => {
     )
       .then((response) => {
         console.log(response);
-        response.json().then((data) => {
-          console.log(data);
-        });
+        response.json();
+      })
+      .then((data) => {
+        console.log(data);
       })
       .catch((err) => {
         console.error(err);
@@ -39,9 +40,9 @@ const SearchResults = (props) => {
   }, []);
 
   // this will be where we make it dynamic based upon state
-  const getItemData = () => {
+  const getItemData = (Title, Program) => {
     fetch(
-      "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/?Title=LionKing&ProgramType=Movie",
+      `https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/?Title=${Title}&ProgramType=Movie`,
       {
         method: "GET",
         headers: {
@@ -53,8 +54,9 @@ const SearchResults = (props) => {
         },
       }
     )
+      .then((response) => response.json())
       .then((response) => {
-        console.log(response);
+        console.log(response.ProgramMatches);
       })
       .catch((err) => {
         console.error(err);
