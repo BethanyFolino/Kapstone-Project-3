@@ -1,26 +1,31 @@
-import React, { Fragment, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { Fragment, useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import ReviewItem from "./ReviewItem";
 import { getReviews } from "../../actions/review";
 
-const Reviews = ({ getReviews, review: { reviews, loading }}) => {
-    useEffect(() => {
-        getReviews();
-    }, [getReviews]);
-    return (
-        <div />
-            
-       
-    )
-}
+const Reviews = ({ getReviews, review: { reviews, loading } }) => {
+  useEffect(() => {
+    getReviews();
+  }, [getReviews]);
+  return (
+    <Fragment>
+      <div className="reviews">
+        {reviews.map((review) => (
+          <ReviewItem key={review._id} review={review} />
+        ))}
+      </div>
+    </Fragment>
+  );
+};
 
 Reviews.propTypes = {
   getPosts: PropTypes.func.isRequired,
   review: PropTypes.object.isRequired,
-}
+};
 
-const mapStateToProps = state => ({
-    review: state.review
-})
+const mapStateToProps = (state) => ({
+  review: state.review,
+});
 
 export default connect(mapStateToProps, { getReviews })(Reviews);
