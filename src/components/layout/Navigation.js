@@ -9,26 +9,29 @@ import { logout } from "../../actions/auth";
 const Navigation = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <Nav className="mr-auto">
-      <Link to="#!" onClick={logout}>
+      <Link to="/dashboard" style={{ marginRight: "12px", color: "gold" }}>
+        Home
+      </Link>
+      <Link to="/profile" style={{ marginRight: "12px", color: "gold" }}>
+        Profile
+      </Link>
+      <Link
+        to="#!"
+        onClick={logout}
+        style={{ marginRight: "12px", color: "gold" }}
+      >
         Logout
       </Link>
     </Nav>
   );
   const guestLinks = (
     <Nav className="mr-auto">
-      <Link to="/" style={{ marginRight: "12px", color: "gold" }}>
-        Home
-      </Link>
-
       <Link to="/register" style={{ marginRight: "12px", color: "gold" }}>
         Register
       </Link>
 
       <Link to="/login" style={{ marginRight: "12px", color: "gold" }}>
         Login
-      </Link>
-      <Link to="/" style={{ color: "gold" }}>
-        Sign Out
       </Link>
     </Nav>
   );

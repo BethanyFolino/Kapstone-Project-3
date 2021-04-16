@@ -8,51 +8,71 @@ const entUrl =
   "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/";
 const MovieSearchResults = (props) => {
   const [formData, setFormData] = useState({
-    Title: "",
+    Search: "",
   });
-  const { Title } = formData;
+  const { Search } = formData;
 
-  // this will be where we make it dynamic based upon state
-  const getItemData = (Title) => {
+  const getItemData = (Search) => {
     fetch(
-      `https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/?Title=${Title}&ProgramType=Movie`,
+      `https://movie-database-imdb-alternative.p.rapidapi.com/?s=${Search}&page=1&r=json`,
       {
         method: "GET",
         headers: {
-          "content-type": "application/json",
           "x-rapidapi-key":
             "529528fe49mshb79e1f661d36214p1d26d5jsn10cb7da958c2",
-          "x-rapidapi-host":
-            "ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com",
+          "x-rapidapi-host": "movie-database-imdb-alternative.p.rapidapi.com",
         },
       }
     )
       .then((response) => response.json())
-      .then((response) => {
-        const data = response.ProgramMatches;
-        console.log(data);
-        setFormData(data);
+      .then((data) => {
+        console.log(data.Search);
+        setFormData(data.Search);
       })
       .catch((err) => {
         console.error(err);
       });
+    //   fetch(
+    //     `https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/?Title=${Title}&ProgramType=Movie`,
+    //     {
+    //       method: "GET",
+    //       headers: {
+    //         "content-type": "application/json",
+    //         "x-rapidapi-key":
+    //           "529528fe49mshb79e1f661d36214p1d26d5jsn10cb7da958c2",
+    //         "x-rapidapi-host":
+    //           "ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com",
+    //       },
+    //     }
+    //   )
+    //     .then((response) => response.json())
+    //     .then((response) => {
+    //       const data = response.ProgramMatches;
+    //       console.log(data);
+    //       setFormData(data);
+    //     })
+    //     .catch((err) => {
+    //       console.error(err);
+    //     });
   };
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();
-    getItemData(Title);
+    getItemData(Search);
   };
 
   return (
     <>
-      <div className="moviesearchresults">Search for your favorite movie!</div>
+      <div className="moviesearchresults">
+        Search for your favorite Movies, TV Shows, and Games!
+      </div>
       <div className="search">
         <form id="search" onSubmit={(e) => onSubmit(e)}>
           <input
             type="text"
-            name="Title"
+            name="Search"
             placeholder="ex: Lion King"
             onChange={handleChange}
           />
@@ -60,7 +80,10 @@ const MovieSearchResults = (props) => {
           <button type="submit">Search</button>
         </form>
       </div>
-      <div>{formData.length >= 0 && formData.map((movie) => <Movie key={movie.Id} {...movie}/>)}</div>
+      <div>
+        {formData.length >= 0 &&
+          formData.map((movie) => <Movie key={movie.imbdID} {...movie} />)}
+      </div>
     </>
   );
 };

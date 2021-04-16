@@ -1,52 +1,13 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
-import { initialMovies } from "../../actions/movies";
-import MovieSearchResults from "../layout/MovieSearchResults";
-import GameSearchResults from "../layout/GameSearchResults";
-// import axios from "axios";
 
-const entUrl =
-  "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/";
+import MovieSearchResults from "../layout/MovieSearchResults";
+
 const Dashboard = (props) => {
-  const [initialMovies, setInitialMovies] = useState([]);
-  // useEffect(() => {
-  //   fetch(
-  //     "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/?Title=Lion%20King&ProgramType=Movie",
-  //     {
-  //       method: "GET",
-  //       headers: {
-  //         "content-type": "application/json",
-  //         "x-rapidapi-key":
-  //           "529528fe49mshb79e1f661d36214p1d26d5jsn10cb7da958c2",
-  //         "x-rapidapi-host":
-  //           "ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com",
-  //       },
-  //     }
-  //   )
-  //     .then((response) => {
-  //       //deconstruct response
-  //       //deconstruct.json()
-  //       //setInitialMovies(deconstruct);
-  //       console.log(response);
-  //       response.json().then((data) => {
-  //         setInitialMovies(data.ProgramMatches);
-  //         console.log(data.ProgramMatches);
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // }, []);
   return (
     <>
-      <div className="dashboard">Dashboard</div>
-      {/* <div className="initial-movies">{initialMovies.map((movie) => { 
-        return (<div>{movie.Score}</div>)
-      })}</div> */}
-     
-      <div className="search">
+      <div className="dashbaord">
         <MovieSearchResults />
-        <GameSearchResults />
       </div>
     </>
   );
