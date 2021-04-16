@@ -10,6 +10,8 @@ const Movie = ({ Title, Year, Poster }) => {
       <h2>{Year}</h2>
       <div>
         <img src={Poster} alt={Title} />
+        <button>Leave a Review</button>OR
+        <button>LIKE</button>
       </div>
       {/* <h2>Released {Year}</h2>
       <h2>Rating: {IvaRating}</h2> */}
