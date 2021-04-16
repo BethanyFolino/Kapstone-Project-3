@@ -5,7 +5,7 @@ const Base = () => {
   return (
     <section>
       <div>
-        <h1>Welcome to Jacob and Bethany's project</h1>
+        <h1>Welcome to MMG!</h1>
       </div>
       <div>
         <Link to="/login">
