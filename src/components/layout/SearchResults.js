@@ -1,12 +1,13 @@
 import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { initialMovies } from "../../actions/movies";
-import Movie from "../layout/Movie";
+import Movie from "./Movie";
+import Reviews from "../reviews/Reviews";
 // import axios from "axios";
 
 const entUrl =
   "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/";
-const MovieSearchResults = (props) => {
+const SearchResults = (props) => {
   const [formData, setFormData] = useState({
     Search: "",
   });
@@ -65,7 +66,7 @@ const MovieSearchResults = (props) => {
 
   return (
     <>
-      <div className="moviesearchresults">
+      <div className="searchresults">
         Search for your favorite Movies, TV Shows, and Games!
       </div>
       <div className="search">
@@ -84,10 +85,11 @@ const MovieSearchResults = (props) => {
         {formData.length >= 0 &&
           formData.map((movie) => <Movie key={movie.imbdID} {...movie} />)}
       </div>
+      <Reviews />
     </>
   );
 };
 
-MovieSearchResults.propTypes = {};
+SearchResults.propTypes = {};
 
-export default MovieSearchResults;
+export default SearchResults;

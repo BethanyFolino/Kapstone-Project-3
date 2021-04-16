@@ -1,13 +1,13 @@
 import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 
-import MovieSearchResults from "../layout/MovieSearchResults";
+import SearchResults from "../layout/SearchResults";
 
 const Dashboard = (props) => {
   return (
     <>
-      <div className="dashbaord">
-        <MovieSearchResults />
+      <div className="dashboard">
+        <SearchResults />
       </div>
     </>
   );
