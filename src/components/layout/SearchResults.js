@@ -16,6 +16,7 @@ const SearchResults = (props) => {
   const [formData, setFormData] = useState({
     Search: "",
   });
+  const [filter, setFilter] = useState("");
   const { Search } = formData;
 
   const getItemData = (Search) => {
@@ -70,9 +71,24 @@ const SearchResults = (props) => {
           <button type="submit">Search</button>
         </form>
       </div>
+
       <div>
+        <button onClick={() => setFilter("movie")} type="button">
+          Movies
+        </button>
+        <button onClick={() => setFilter("game")} type="button">
+          Games
+        </button>
+        <button onClick={() => setFilter("series")} type="button">
+          TV Shows
+        </button>
         {formData.length >= 0 &&
-          formData.map((movie) => <Movie key={movie.imbdID} {...movie} />)}
+          formData
+            .map((movie) => <Movie key={movie.imbdID} {...movie} />)
+            .filter((items) => {
+              console.log(items.props);
+              return filter ? items.props.Type === filter : true;
+            })}
       </div>
       {/* testing */}
       {/* <ReviewForm /> */}

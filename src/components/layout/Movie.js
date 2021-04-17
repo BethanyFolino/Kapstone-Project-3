@@ -11,8 +11,6 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
         <h2>{Year}</h2>
         <div>
           <img src={Poster} alt={Title} />
-          <button>Leave a Review</button>OR
-          <button>LIKE</button>
         </div>
       </div>
 
