@@ -45,8 +45,8 @@ const ReviewItem = ({
 };
 
 ReviewItem.defaultProps = {
-  showActions: true
-}
+  showActions: true,
+};
 
 ReviewItem.propTypes = {
   post: PropTypes.object.isRequired,

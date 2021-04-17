@@ -2,10 +2,16 @@ import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Movie from "./Movie";
 import Reviews from "../reviews/Reviews";
+
+// for testings
+// import { connect } from "react-redux";
+// import ReviewItem from "../reviews/ReviewItem";
+// import { getReviews } from "../../actions/review";
+// import ReviewForm from "../reviews/ReviewForm";
+
+// import Reviews from "../reviews/Reviews";
 // import axios from "axios";
 
-const entUrl =
-  "https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/";
 const SearchResults = (props) => {
   const [formData, setFormData] = useState({
     Search: "",
@@ -32,7 +38,6 @@ const SearchResults = (props) => {
       .catch((err) => {
         console.error(err);
       });
-    
   };
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -42,8 +47,14 @@ const SearchResults = (props) => {
     getItemData(Search);
   };
 
+  // const getReviewData = (Search) => {
+  //   const Reviews = ({ getReviews, review: { reviews, loading } }) => {
+  //     useEffect(() => {
+  //       getReviews();
+  //     }, [getReviews]);
+  //   };
   return (
-    <>
+    <Fragment>
       <div className="searchresults">
         Search for your favorite Movies, TV Shows, and Games!
       </div>
@@ -63,11 +74,30 @@ const SearchResults = (props) => {
         {formData.length >= 0 &&
           formData.map((movie) => <Movie key={movie.imbdID} {...movie} />)}
       </div>
+      {/* testing */}
+      {/* <ReviewForm /> */}
+      {/* <div className="reviews">
+        {reviews.map((review) => (
+          <ReviewItem key={review._id} review={review} />
+        ))}
+      </div> */}
       <Reviews />
-    </>
+    </Fragment>
   );
 };
+// };
+
+// Reviews.propTypes = {
+//   getPosts: PropTypes.func.isRequired,
+//   review: PropTypes.object.isRequired,
+// };
+
+// const mapStateToProps = (state) => ({
+//   review: state.review,
+// });
 
 SearchResults.propTypes = {};
+
+// export default connect(mapStateToProps, { getReviews })(SearchResults);
 
 export default SearchResults;
