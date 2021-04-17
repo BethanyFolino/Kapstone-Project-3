@@ -2,6 +2,7 @@ import axios from "axios";
 import { setAlert } from "./alert";
 import {
   GET_REVIEWS,
+  GET_REVIEW,
   REVIEW_ERROR,
   UPDATE_LIKES,
   DELETE_REVIEW,
@@ -94,6 +95,22 @@ export const addReview = (formData) => async (dispatch) => {
     });
 
     dispatch(setAlert("Review Created", "Success"));
+  } catch (err) {
+    dispatch({
+      type: REVIEW_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+export const getReview = id => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/posts/${id}`);
+
+    dispatch({
+      type: GET_REVIEW,
+      payload: res.data,
+    });
   } catch (err) {
     dispatch({
       type: REVIEW_ERROR,

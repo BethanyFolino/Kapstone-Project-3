@@ -10,6 +10,7 @@ export const LOGOUT = "LOGOUT";
 export const GET_PROFILE = "GET_PROFILE";
 export const PROFILE_ERROR = "PROFILE_ERROR";
 export const GET_REVIEWS = "GET_REVIEWS";
+export const GET_REVIEW = "GET_REVIEW";
 export const REVIEW_ERROR = "REVIEW_ERROR";
 export const UPDATE_LIKES = "UPDATE_LIKES";
 export const DELETE_REVIEW = "DELETE_REVIEW";

@@ -1,5 +1,6 @@
 import {
   GET_REVIEWS,
+  GET_REVIEW,
   REVIEW_ERROR,
   UPDATE_LIKES,
   DELETE_REVIEW,
@@ -23,6 +24,12 @@ export default function review(state = initialState, action) {
         reviews: payload,
         loading: false,
       };
+    case GET_REVIEW:
+      return {
+        ...state,
+        review: payload,
+        loading: false
+      }
     case ADD_REVIEW:
       return {
         ...state,

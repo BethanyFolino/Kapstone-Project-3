@@ -11,6 +11,7 @@ const ReviewItem = ({
   deleteReview,
   auth,
   review: { _id, text, name, user, likes, comments, date },
+  showActions,
 }) => {
   return (
     <div>
@@ -19,22 +20,33 @@ const ReviewItem = ({
       <p>
         Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
       </p>
-      <button onClick={(e) => addLike(_id)}>
-        {likes.length > 0 ? <span>{likes.length}</span> : 0} likes
-      </button>
 
-      <button onClick={(e) => removeLike(_id)}>Remove Like</button>
-      <Link to={`/posts/${_id}`}>
-        {comments.length > 0 && <span>{comments.length}</span>}
-      </Link>
-      <button>Discussion</button>
-      {!auth.loading && user === auth.user._id && (
-        <button onClick={(e) => deleteReview(_id)}>Delete</button>
+      {showActions && (
+        <Fragment>
+          <button onClick={(e) => addLike(_id)}>
+            {likes.length > 0 ? <span>{likes.length}</span> : 0} likes
+          </button>
+
+          <button onClick={(e) => removeLike(_id)}>Remove Like</button>
+          <button>
+            <Link to={`/posts/${_id}`}>
+              Discussion
+              {comments.length > 0 && <span>{comments.length}</span>}
+            </Link>
+          </button>
+          {!auth.loading && user === auth.user._id && (
+            <button onClick={(e) => deleteReview(_id)}>Delete</button>
+          )}
+          <div>{}</div>
+        </Fragment>
       )}
-      <div>{}</div>
     </div>
   );
 };
+
+ReviewItem.defaultProps = {
+  showActions: true
+}
 
 ReviewItem.propTypes = {
   post: PropTypes.object.isRequired,
