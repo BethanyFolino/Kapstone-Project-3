@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Movie from "./Movie";
-import Reviews from "../reviews/Reviews";
+// import Reviews from "../reviews/Reviews";
 
 // for testings
 // import { connect } from "react-redux";
@@ -81,7 +81,7 @@ const SearchResults = (props) => {
           <ReviewItem key={review._id} review={review} />
         ))}
       </div> */}
-      <Reviews />
+      {/* <Reviews /> */}
     </Fragment>
   );
 };

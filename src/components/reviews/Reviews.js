@@ -5,18 +5,27 @@ import ReviewItem from "./ReviewItem";
 import { getReviews } from "../../actions/review";
 import ReviewForm from "./ReviewForm";
 
-const Reviews = ({ getReviews, review: { reviews, loading } }) => {
+const Reviews = ({ getReviews, review: { reviews, loading }, imdbID }) => {
   useEffect(() => {
     getReviews();
   }, [getReviews]);
   return (
     <Fragment>
-      <ReviewForm />
-      <div className="reviews">
-        {reviews.map((review) => (
-          <ReviewItem key={review._id} review={review} />
-        ))}
-      </div>
+      {imdbID ? (
+        <div className="reviews">
+          {reviews
+            .filter((review) => review.imdbID === imdbID)
+            .map((review) => (
+              <ReviewItem key={review._id} review={review} />
+            ))}
+        </div>
+      ) : (
+        <div className="reviews">
+          {reviews.map((review) => (
+            <ReviewItem key={review._id} review={review} />
+          ))}
+        </div>
+      )}
     </Fragment>
   );
 };

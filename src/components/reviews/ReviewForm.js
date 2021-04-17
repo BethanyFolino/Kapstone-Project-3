@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addReview } from "../../actions/review";
 
-const ReviewForm = ({ addReview }) => {
+const ReviewForm = ({ addReview, imdbID }) => {
   const [text, setText] = useState("");
   return (
     <div className="review-form">
@@ -13,7 +13,7 @@ const ReviewForm = ({ addReview }) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          addReview({ text });
+          addReview({ text, imdbID });
           setText("");
         }}
       >
