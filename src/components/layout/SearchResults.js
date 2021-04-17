@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { initialMovies } from "../../actions/movies";
 import Movie from "./Movie";
 import Reviews from "../reviews/Reviews";
 // import axios from "axios";
@@ -33,28 +32,7 @@ const SearchResults = (props) => {
       .catch((err) => {
         console.error(err);
       });
-    //   fetch(
-    //     `https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/match/?Title=${Title}&ProgramType=Movie`,
-    //     {
-    //       method: "GET",
-    //       headers: {
-    //         "content-type": "application/json",
-    //         "x-rapidapi-key":
-    //           "529528fe49mshb79e1f661d36214p1d26d5jsn10cb7da958c2",
-    //         "x-rapidapi-host":
-    //           "ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com",
-    //       },
-    //     }
-    //   )
-    //     .then((response) => response.json())
-    //     .then((response) => {
-    //       const data = response.ProgramMatches;
-    //       console.log(data);
-    //       setFormData(data);
-    //     })
-    //     .catch((err) => {
-    //       console.error(err);
-    //     });
+    
   };
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });

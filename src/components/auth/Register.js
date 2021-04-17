@@ -35,7 +35,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     <Fragment>
       <div container>
         <h7>Sign up here</h7>
-        {/* {fullySignedUp && <div>You are now signed up and logged in!</div>} */}
+        
         <form id="signup-form" onSubmit={(e) => onSubmit(e)}>
           <label>Name</label>
           <input
@@ -73,7 +73,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             onChange={(e) => handleChange(e)}
             required
           />
-          {/* {!fullySignedUp && <button type="submit">Sign Up</button>} */}
+          
           <button type="submit">Sign Up</button>
         </form>
       </div>

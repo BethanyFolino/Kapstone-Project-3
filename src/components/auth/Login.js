@@ -28,7 +28,7 @@ const Login = ({ login, isAuthenticated }) => {
     <Fragment>
       <div container>
         <h7>Login here</h7>
-        {/* {fullySignedUp && <div>You are now signed up and logged in!</div>} */}
+        
         <form id="signin-form" onSubmit={(e) => onSubmit(e)}>
           <label>Email</label>
           <input
@@ -49,7 +49,7 @@ const Login = ({ login, isAuthenticated }) => {
             onChange={(e) => handleChange(e)}
             required
           />
-          {/* {!fullySignedUp && <button type="submit">Sign Up</button>} */}
+          
           <button type="submit">Login</button>
         </form>
       </div>
