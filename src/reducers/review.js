@@ -1,4 +1,4 @@
-import { GET_REVIEWS, REVIEW_ERROR } from "../actions/types";
+import { GET_REVIEWS, REVIEW_ERROR, UPDATE_LIKES } from "../actions/types";
 
 const initialState = {
   reviews: [],
@@ -23,6 +23,13 @@ export default function review(state = initialState, action) {
         error: payload,
         loading: false,
       };
+    case UPDATE_LIKES:
+      return {
+          ...state,
+          reviews: state.reviews.map(review => review._id === payload.id ? { ...review, likes:
+          payload.likes } : review),
+          loading: false
+      }
     default:
       return state;
   }
