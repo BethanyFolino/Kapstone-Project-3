@@ -1,6 +1,12 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { GET_REVIEWS, REVIEW_ERROR, UPDATE_LIKES } from "./types";
+import {
+  GET_REVIEWS,
+  REVIEW_ERROR,
+  UPDATE_LIKES,
+  DELETE_REVIEW,
+  ADD_REVIEW,
+} from "./types";
 
 //Get reviews
 export const getReviews = () => async (dispatch) => {
@@ -45,6 +51,49 @@ export const removeLike = (id) => async (dispatch) => {
       type: UPDATE_LIKES,
       payload: { id, likes: res.data },
     });
+  } catch (err) {
+    dispatch({
+      type: REVIEW_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Delete Review
+export const deleteReview = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/posts/${id}`);
+
+    dispatch({
+      type: DELETE_REVIEW,
+      payload: id,
+    });
+
+    dispatch(setAlert("Review Removed", "Success"));
+  } catch (err) {
+    dispatch({
+      type: REVIEW_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Add Review
+export const addReview = (formData) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  try {
+    const res = await axios.post("/api/posts/", formData, config);
+
+    dispatch({
+      type: ADD_REVIEW,
+      payload: res.data,
+    });
+
+    dispatch(setAlert("Review Created", "Success"));
   } catch (err) {
     dispatch({
       type: REVIEW_ERROR,

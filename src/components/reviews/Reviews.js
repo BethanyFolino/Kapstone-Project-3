@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ReviewItem from "./ReviewItem";
 import { getReviews } from "../../actions/review";
+import ReviewForm from "./ReviewForm";
 
 const Reviews = ({ getReviews, review: { reviews, loading } }) => {
   useEffect(() => {
@@ -10,6 +11,7 @@ const Reviews = ({ getReviews, review: { reviews, loading } }) => {
   }, [getReviews]);
   return (
     <Fragment>
+      <ReviewForm />
       <div className="reviews">
         {reviews.map((review) => (
           <ReviewItem key={review._id} review={review} />

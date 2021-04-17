@@ -1,4 +1,10 @@
-import { GET_REVIEWS, REVIEW_ERROR, UPDATE_LIKES } from "../actions/types";
+import {
+  GET_REVIEWS,
+  REVIEW_ERROR,
+  UPDATE_LIKES,
+  DELETE_REVIEW,
+  ADD_REVIEW,
+} from "../actions/types";
 
 const initialState = {
   reviews: [],
@@ -17,6 +23,18 @@ export default function review(state = initialState, action) {
         reviews: payload,
         loading: false,
       };
+    case ADD_REVIEW:
+      return {
+        ...state,
+        reviews: [payload, ...state.reviews],
+        loading: false,
+      };
+    case DELETE_REVIEW:
+      return {
+        ...state,
+        reviews: state.reviews.filter((review) => review._id !== payload),
+        loading: false,
+      };
     case REVIEW_ERROR:
       return {
         ...state,
@@ -25,11 +43,14 @@ export default function review(state = initialState, action) {
       };
     case UPDATE_LIKES:
       return {
-          ...state,
-          reviews: state.reviews.map(review => review._id === payload.id ? { ...review, likes:
-          payload.likes } : review),
-          loading: false
-      }
+        ...state,
+        reviews: state.reviews.map((review) =>
+          review._id === payload.id
+            ? { ...review, likes: payload.likes }
+            : review
+        ),
+        loading: false,
+      };
     default:
       return state;
   }
