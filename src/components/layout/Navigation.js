@@ -15,6 +15,9 @@ const Navigation = ({ auth: { isAuthenticated, loading }, logout }) => {
       <Link to="/profile" style={{ marginRight: "12px", color: "gold" }}>
         Profile
       </Link>
+      <Link to="/about" style={{ marginRight: "12px", color: "gold" }}>
+        About
+      </Link>
       <Link
         to="#!"
         onClick={logout}
