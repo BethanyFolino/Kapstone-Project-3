@@ -1,7 +1,8 @@
 import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Movie from "./Movie";
-import axios from "axios";
+import axios from "./axios";
+import ImageCard from "./ImageCard";
 // import Reviews from "../reviews/Reviews";
 
 // for testings
@@ -13,13 +14,10 @@ import axios from "axios";
 // import Reviews from "../reviews/Reviews";
 // import axios from "axios";
 const initialToken = "b43be22b6a5309d4edfa333956d60b88";
-const initialUrl = "https://image.tmdb.org/t/p/original";
+// const initialUrl = "https://api.themoviedb.org/3";
 
-const pages = Math.floor(Math.random() * 500);
-const generateRandom =
-  initialUrl +
-  `/discover/movie?api_key=${initialToken}&sort_by=popularity.desc&page=` +
-  pages;
+// const pages = Math.floor(Math.random() * 500);
+const generateRandom = `/trending/all/week?api_key=${initialToken}&language=en-US`;
 
 const SearchResults = () => {
   const [formData, setFormData] = useState({
@@ -27,28 +25,23 @@ const SearchResults = () => {
   });
   const [filter, setFilter] = useState("");
   const [search, setSearch] = useState(false);
-  const [image, setImage] = useState([]);
+  const [images, setImages] = useState([]);
   // const [movieOption, setMovieOption] = useState(generateRandom);
   // const { movieOption } = data;
   const { Search } = formData;
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const requests = await axios.get(generateRandom);
-  //     console.log(requests);
-  //     setImage(requests.data.results);
-  //     console.log(image);
-  //     return requests;
-  //   }
-  //   fetchData();
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(generateRandom);
+      console.log(request);
+      setImages(request.data.results);
+      console.log(images);
+      return request;
+    }
+    fetchData();
 
-  //   // return fetch(initialUrl + generateRandom, {
-  //   //   headers: {
-  //   //     Authorization: initialToken,
-  //   //   },
-  //   // }).then((res) => console.log(res));
-  //   // setSearch(true);
-  // }, []);
+    setSearch(true);
+  }, []);
 
   const getItemData = (Search) => {
     fetch(
@@ -113,6 +106,13 @@ const SearchResults = () => {
         <button onClick={() => setFilter("series")} type="button">
           TV Shows
         </button>
+
+        <div className="initial-movies">
+          {images.map((image) => (
+            <ImageCard image={image} />
+          ))}
+        </div>
+
         {formData.length >= 0 &&
           formData
             .map((movie) => <Movie key={movie.imbdID} {...movie} />)
