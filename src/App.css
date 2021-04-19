@@ -70,3 +70,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.root {
+  background-image: url(../src/images//image.jpg);
+}
