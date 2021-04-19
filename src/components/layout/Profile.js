@@ -1,9 +1,17 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
+import { createProfile } from "../../actions/profile";
 
-const Profile = ({ getCurrentProfile, auth: { user }, profile }) => {
+const Profile = ({
+  createProfile,
+  getCurrentProfile,
+  history,
+  auth: { user },
+  profile,
+}) => {
   useEffect(() => {
     getCurrentProfile();
   }, []);
@@ -20,11 +28,16 @@ const Profile = ({ getCurrentProfile, auth: { user }, profile }) => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    createProfile(formData, history);
+  };
+
   return (
     <Fragment>
       <h1>Profile</h1>
       <p>Welcome {user && user.name}</p>
-      {/* {user.favoritemovie} */}
+      {profile.favoritemovie}
       {/* {profile !== null ? (
         <Fragment>has</Fragment>
       ) : ( */}
@@ -35,7 +48,7 @@ const Profile = ({ getCurrentProfile, auth: { user }, profile }) => {
           yourself.
         </p>
         <small>* = required field</small>
-        <form className="form">
+        <form className="form" onSubmit={(e) => onSubmit(e)}>
           <div className="form-group">
             <textarea
               placeholder="Your bio here"
@@ -72,7 +85,8 @@ const Profile = ({ getCurrentProfile, auth: { user }, profile }) => {
             />
           </div>
         </form>
-        <input type="submit" className="btn btn-primary" />
+        {/* <input type="submit" className="btn btn-primary" /> */}
+        <button onClick={onSubmit}>Submit</button>
       </Fragment>
     </Fragment>
   );
@@ -80,6 +94,7 @@ const Profile = ({ getCurrentProfile, auth: { user }, profile }) => {
 
 Profile.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
+  createProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
 };
@@ -89,4 +104,6 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Profile);
+export default connect(mapStateToProps, { getCurrentProfile, createProfile })(
+  withRouter(Profile)
+);
