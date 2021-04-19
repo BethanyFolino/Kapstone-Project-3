@@ -4,17 +4,18 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
 import { createProfile } from "../../actions/profile";
+import DashboardActions from "../dashboard/DashboardActions";
 
 const Profile = ({
   createProfile,
   getCurrentProfile,
   history,
   auth: { user },
-  profile,
+  profile: { profile },
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
 
   const [formData, setFormData] = useState({
     bio: "",
@@ -35,9 +36,11 @@ const Profile = ({
 
   return (
     <Fragment>
-      <h1>Profile</h1>
-      <p>Welcome {user && user.name}</p>
-      {profile.favoritemovie}
+      <h1>Welcome {user && user.name}</h1>
+      {/* <h3>A little bit about myself:{profile.bio}</h3>
+      <h2>Favorite Movie:{profile.favoritemovie}</h2>
+      <h2>Favorite Game:{profile.favoritegame}</h2>
+      <h2>Favorite TV Series:{profile.favoritetvseries}</h2> */}
       {/* {profile !== null ? (
         <Fragment>has</Fragment>
       ) : ( */}

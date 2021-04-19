@@ -110,12 +110,6 @@ const SearchResults = () => {
           TV Shows
         </button>
 
-        <div className="results">
-          {images.map((image) => (
-            <ImageCard image={image} />
-          ))}
-        </div>
-
         {formData.length >= 0 &&
           formData
             .map((movie) => <Movie key={movie.imbdID} {...movie} />)
@@ -123,6 +117,12 @@ const SearchResults = () => {
               console.log(items.props);
               return filter ? items.props.Type === filter : true;
             })}
+      </div>
+
+      <div className="results">
+        {images.map((image) => (
+          <ImageCard image={image} />
+        ))}
       </div>
       {/* testing */}
       {/* <ReviewForm /> */}
