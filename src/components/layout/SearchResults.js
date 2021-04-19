@@ -16,8 +16,11 @@ import ImageCard from "./ImageCard";
 const initialToken = "b43be22b6a5309d4edfa333956d60b88";
 // const initialUrl = "https://api.themoviedb.org/3";
 
-// const pages = Math.floor(Math.random() * 500);
-const generateRandom = `/trending/all/week?api_key=${initialToken}&language=en-US`;
+const pages = Math.floor(Math.random() * 500);
+// const generateRandom = `/trending/all/week?api_key=${initialToken}&language=en-US`;
+const generateRandom =
+  `/discover/movie?api_key=${initialToken}&certification_country=UScertification.lte=G&sort_by=popularity.desc&page=` +
+  pages;
 
 const SearchResults = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +36,7 @@ const SearchResults = () => {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(generateRandom);
-      console.log(request);
+      console.log(request.data.results);
       setImages(request.data.results);
       console.log(images);
       return request;
@@ -107,7 +110,7 @@ const SearchResults = () => {
           TV Shows
         </button>
 
-        <div className="initial-movies">
+        <div className="results">
           {images.map((image) => (
             <ImageCard image={image} />
           ))}
