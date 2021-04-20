@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
+import { Form, Button } from "react-bootstrap";
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     <Fragment>
       <div container>
         <h7>Sign up here</h7>
-        
+
         <form id="signup-form" onSubmit={(e) => onSubmit(e)}>
           <label>Name</label>
           <input
@@ -61,7 +62,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             type="password"
             name="password2"
             value={password2}
-            placeholder="Confirm Password"
+            placeholder="Password"
             onChange={(e) => handleChange(e)}
             required
           />
@@ -69,13 +70,69 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             type="password"
             name="password"
             value={password}
-            placeholder="Password"
+            placeholder="Confirm Password"
             onChange={(e) => handleChange(e)}
             required
           />
-          
+
           <button type="submit">Sign Up</button>
         </form>
+        {/* <Form onSubmit={(e) => onSubmit(e)}>
+          <Form.Group controlId="formBasicName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              as="input"
+              type="text"
+              placeholder="Enter name"
+              value={name}
+              onChange={(e) => handleChange(e)}
+              required
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => handleChange(e)}
+              required
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => handleChange(e)}
+              required
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Confirm Password"
+              value={password2}
+              onChange={(e) => handleChange(e)}
+              required
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Check me out" />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form> */}
       </div>
     </Fragment>
   );
