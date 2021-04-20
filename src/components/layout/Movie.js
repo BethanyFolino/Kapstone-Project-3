@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from 'react-bootstrap';
 
 import Reviews from "../reviews/Reviews";
 import ReviewForm from "../reviews/ReviewForm";
+import { likeMovie } from "../../actions/like";
 
 const Movie = ({ Title, Year, Poster, imdbID }) => {
   const [likes, setLikes] = useState(0);
@@ -12,6 +13,8 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
       setLikes(likes + 1);
     }
   };
+
+
 
   return (
     <>

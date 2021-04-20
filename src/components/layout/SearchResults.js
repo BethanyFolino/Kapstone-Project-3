@@ -110,7 +110,7 @@ const SearchResults = () => {
 </Form>
       </div>
 
-      <div>
+      <div className='buttons'>
         <button onClick={() => setFilter("movie")} type="button">
           Movies
         </button>

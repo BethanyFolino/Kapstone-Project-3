@@ -3,12 +3,16 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ReviewItem from "./ReviewItem";
 import { getReviews } from "../../actions/review";
+import { likeMovie } from '../../actions/like';
 import ReviewForm from "./ReviewForm";
 
 const Reviews = ({ getReviews, review: { reviews, loading }, imdbID }) => {
   useEffect(() => {
     getReviews();
   }, [getReviews]);
+
+ 
+
   return (
     <Fragment>
       {imdbID ? (

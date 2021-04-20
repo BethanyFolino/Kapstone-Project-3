@@ -16,3 +16,6 @@ export const REVIEW_ERROR = "REVIEW_ERROR";
 export const UPDATE_LIKES = "UPDATE_LIKES";
 export const DELETE_REVIEW = "DELETE_REVIEW";
 export const ADD_REVIEW = "ADD_REVIEW";
+export const ADD_LIKE_MOVIE = "ADD_LIKE_MOVIE";
+export const LIKE_MOVIE_ERROR = "LIKE_MOVIE_ERROR";
+
