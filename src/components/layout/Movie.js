@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Card } from 'react-bootstrap';
 
 import Reviews from "../reviews/Reviews";
 import ReviewForm from "../reviews/ReviewForm";
@@ -14,7 +15,7 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
 
   return (
     <>
-      <div className="movie">
+      {/* <div className="movie">
         <h1>{Title}</h1>
         <h2>{Year}</h2>
         <div>
@@ -25,7 +26,22 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
       <button onClick={likeTheMovie}>Like</button>
       {/* reviews - imdbID exists here */}
       <ReviewForm imdbID={imdbID} />
-      <Reviews imdbID={imdbID} />
+      <Reviews imdbID={imdbID} /> */}
+      <Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src={Poster} />
+  <Card.Body>
+    <Card.Title>Title: {Title}</Card.Title>
+    <Card.Text>
+     Year Created: {Year}
+    </Card.Text>
+    <Card.Text>
+    <Reviews imdbID={imdbID} />
+    </Card.Text>
+    <Card.Text>
+    <Reviews imdbID={imdbID} />
+    </Card.Text>
+  </Card.Body>
+</Card>
     </>
   );
 };
