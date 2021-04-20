@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
 import { createProfile } from "../../actions/profile";
 import DashboardActions from "../dashboard/DashboardActions";
+import { Form, Button } from 'react-bootstrap'
 
 const Profile = ({
   createProfile,
@@ -51,7 +52,9 @@ const Profile = ({
           yourself.
         </p>
         <small>* = required field</small>
-        <form className="form" onSubmit={(e) => onSubmit(e)}>
+
+
+        {/* <form className="form" onSubmit={(e) => onSubmit(e)}>
           <div className="form-group">
             <textarea
               placeholder="Your bio here"
@@ -88,8 +91,45 @@ const Profile = ({
             />
           </div>
         </form>
-        {/* <input type="submit" className="btn btn-primary" /> */}
-        <button onClick={onSubmit}>Submit</button>
+        <button onClick={onSubmit}>Submit</button> */}
+
+        <Form>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Bio</Form.Label>
+    <Form.Control type="text" placeholder="bio" name="bio" value={bio}
+              onChange={(e) => onChange(e)}/>
+    <Form.Text className="text-muted">
+    A fun fact about yourself or where you are from
+    </Form.Text>
+  </Form.Group>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Favorite Movie </Form.Label>
+    <Form.Control type="text" placeholder="favorite movie" name="favoritemovie"
+              value={favoritemovie}
+              onChange={(e) => onChange(e)}/>
+   
+  </Form.Group>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Favorite TV Series</Form.Label>
+    <Form.Control type="text" placeholder="favorite tv series" name="favoritetvseries"
+              value={favoritetvseries}
+              onChange={(e) => onChange(e)}/>
+    
+  </Form.Group>
+
+  <Form.Group controlId="formBasicPassword">
+    <Form.Label>Favorite Game</Form.Label>
+    <Form.Control type="password" placeholder="favorite game"  name="favoritegame"
+              value={favoritegame}
+              onChange={(e) => onChange(e)}/>
+  </Form.Group>
+  <Form.Group controlId="formBasicCheckbox">
+    <Form.Check type="checkbox" label="Check me out" />
+  </Form.Group>
+  <Button variant="primary" type="submit" onClick={onSubmit}>
+    Submit
+  </Button>
+</Form>
       </Fragment>
     </Fragment>
   );

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Movie from "./Movie";
 import axios from "./axios";
 import ImageCard from "./ImageCard";
+import { Form, Button } from 'react-bootstrap'
 // import Reviews from "../reviews/Reviews";
 
 // for testings
@@ -87,7 +88,7 @@ const SearchResults = () => {
         Search for your favorite Movies, TV Shows, and Games!
       </div>
       <div className="search">
-        <form id="search" onSubmit={(e) => onSubmit(e)}>
+        {/* <form id="search" onSubmit={(e) => onSubmit(e)}>
           <input
             type="text"
             name="Search"
@@ -96,7 +97,17 @@ const SearchResults = () => {
           />
 
           <button type="submit">Search</button>
-        </form>
+        </form> */}
+        <Form onSubmit={(e) => onSubmit(e)}>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Search</Form.Label>
+    <Form.Control type="text" name='Search' placeholder="Ex: Lion King" onChange={handleChange}/>
+    
+  </Form.Group>
+  <Button variant="primary" type="submit">
+    Submit
+  </Button>
+</Form>
       </div>
 
       <div>

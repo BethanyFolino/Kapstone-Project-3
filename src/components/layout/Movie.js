@@ -27,7 +27,7 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
       {/* reviews - imdbID exists here */}
       {/* <ReviewForm imdbID={imdbID} />
       <Reviews imdbID={imdbID} />  */}
-      <Card style={{ width: '18rem' }}>
+      <Card className='our-movies'style={{ width: '18rem' }}>
   <Card.Img variant="top" src={Poster} />
   <Card.Body>
     <Card.Title>Title: {Title}</Card.Title>
@@ -39,9 +39,10 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
     </Card.Text>
     <button onClick={likeTheMovie}>Like</button>
     <Card.Text>
-    <Reviews imdbID={imdbID} />
+    <ReviewForm imdbID={imdbID} />
     </Card.Text>
     <Card.Text>
+      <h2>Reviews:</h2>
     <Reviews imdbID={imdbID} />
     </Card.Text>
   </Card.Body>

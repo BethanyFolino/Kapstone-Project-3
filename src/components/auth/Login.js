@@ -30,7 +30,7 @@ const Login = ({ login, isAuthenticated }) => {
       <div container>
         <h7>Login here</h7>
         
-        <form id="signin-form" onSubmit={(e) => onSubmit(e)}>
+        {/* <form id="signin-form" onSubmit={(e) => onSubmit(e)}>
           <label>Email</label>
           <input
             type="text"
@@ -52,11 +52,11 @@ const Login = ({ login, isAuthenticated }) => {
           />
           
           <button type="submit">Login</button>
-        </form>
-        {/* <Form onSubmit={(e) => onSubmit(e)}>
+        </form> */}
+        <Form onSubmit={(e) => onSubmit(e)}>
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => handleChange(e)} required/>
+    <Form.Control type="email" placeholder="Enter email" name ='email' value={email} onChange={(e) => handleChange(e)} required/>
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
@@ -64,7 +64,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   <Form.Group controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => handleChange(e)} required/>
+    <Form.Control type="password" placeholder="Password" name='password' value={password} onChange={(e) => handleChange(e)} required/>
   </Form.Group>
   <Form.Group controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
@@ -72,7 +72,7 @@ const Login = ({ login, isAuthenticated }) => {
   <Button variant="primary" type="submit">
     Submit
   </Button>
-</Form> */}
+</Form>
       </div>
 
     </Fragment>

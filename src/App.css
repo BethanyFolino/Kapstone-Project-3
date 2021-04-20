@@ -74,3 +74,8 @@
 .root {
   background-image: url(../src/images//image.jpg);
 }
+
+.search {
+  display: flex;
+
+}

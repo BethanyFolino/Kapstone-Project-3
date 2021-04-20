@@ -15,7 +15,7 @@ function ImageCard({ image }) {
     //   <h2>{image.title || image.original_name}</h2>
     //   <p>{image.vote_count}</p>
     // </div>
-
+<div >
 <Card style={{ width: '18rem' }}>
 <Card.Img variant="top" src={`${baseURL}${image.backdrop_path || image.poster_path} `} />
 <Card.Body>
@@ -28,6 +28,7 @@ function ImageCard({ image }) {
   </Card.Text>
 </Card.Body>
 </Card>
+</div>
   );
 }
 

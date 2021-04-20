@@ -37,7 +37,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       <div container>
         <h7>Sign up here</h7>
 
-        <form id="signup-form" onSubmit={(e) => onSubmit(e)}>
+        {/* <form id="signup-form" onSubmit={(e) => onSubmit(e)}>
           <label>Name</label>
           <input
             type="text"
@@ -76,13 +76,15 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           />
 
           <button type="submit">Sign Up</button>
-        </form>
-        {/* <Form onSubmit={(e) => onSubmit(e)}>
+        </form> */}
+
+
+        <Form onSubmit={(e) => onSubmit(e)}>
           <Form.Group controlId="formBasicName">
             <Form.Label>Name</Form.Label>
             <Form.Control
-              as="input"
               type="text"
+              name='name'
               placeholder="Enter name"
               value={name}
               onChange={(e) => handleChange(e)}
@@ -97,6 +99,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="email"
+              name='email'
               placeholder="Email"
               value={email}
               onChange={(e) => handleChange(e)}
@@ -108,6 +111,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
+              name='password'
               placeholder="Password"
               value={password}
               onChange={(e) => handleChange(e)}
@@ -119,6 +123,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
+              name='password2'
               placeholder="Confirm Password"
               value={password2}
               onChange={(e) => handleChange(e)}
@@ -132,7 +137,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           <Button variant="primary" type="submit">
             Submit
           </Button>
-        </Form> */}
+        </Form>
       </div>
     </Fragment>
   );
