@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card } from 'react-bootstrap';
+import { Card } from "react-bootstrap";
 
 import Reviews from "../reviews/Reviews";
 import ReviewForm from "../reviews/ReviewForm";
@@ -13,8 +13,6 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
       setLikes(likes + 1);
     }
   };
-
-
 
   return (
     <>
@@ -30,26 +28,22 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
       {/* reviews - imdbID exists here */}
       {/* <ReviewForm imdbID={imdbID} />
       <Reviews imdbID={imdbID} />  */}
-      <Card className='our-movies'style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={Poster} />
-  <Card.Body>
-    <Card.Title>Title: {Title}</Card.Title>
-    <Card.Text>
-     Year Created: {Year}
-    </Card.Text>
-    <Card.Text>
-      Likes: {likes}
-    </Card.Text>
-    <button onClick={likeTheMovie()}>Like</button>
-    <Card.Text>
-    <ReviewForm imdbID={imdbID} />
-    </Card.Text>
-    <Card.Text>
-      <h2>Reviews:</h2>
-    <Reviews imdbID={imdbID} />
-    </Card.Text>
-  </Card.Body>
-</Card>
+      <Card className="our-movies" style={{ width: "18rem" }}>
+        <Card.Img variant="top" src={Poster} />
+        <Card.Body>
+          <Card.Title>Title: {Title}</Card.Title>
+          <Card.Text>Year Created: {Year}</Card.Text>
+          <Card.Text>Likes: {likes}</Card.Text>
+          <button onClick={likeTheMovie}>Like</button>
+          <Card.Text>
+            <ReviewForm imdbID={imdbID} />
+          </Card.Text>
+          <Card.Text>
+            <h2>Reviews:</h2>
+            <Reviews imdbID={imdbID} />
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </>
   );
 };
