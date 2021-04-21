@@ -40,7 +40,7 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
     <Card.Text>
       Likes: {likes}
     </Card.Text>
-    <button onClick={likeTheMovie}>Like</button>
+    <button onClick={likeMovie()}>Like</button>
     <Card.Text>
     <ReviewForm imdbID={imdbID} />
     </Card.Text>

@@ -7,13 +7,18 @@ import {
 
 // Like a movie
 
-export const likeMovie = () => async (dispatch) => {
+export const likeMovie = (imdbID) => async (dispatch) => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }
     try {
-        const res = await axios.post('/api/like');
+        const res = await axios.post('/api/like', config );
 
         dispatch({
             type: ADD_LIKE_MOVIE,
-            payload: res.data,
+            payload: {imdbID, likes: res.data},
         });
     } catch (err) {
         dispatch({
