@@ -67,7 +67,7 @@
   background-color: antiquewhite;
 }
 
-.movie {
+.our-movies card {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -75,6 +75,8 @@
 
 .root {
   background-image: url(../src/images//image.jpg);
+  background-position: center;
+  background-size: cover;
   /* .hero {
   position: relative;
   height: 100vh;
@@ -115,4 +117,5 @@
 
 .search {
   display: flex;
+  flex-direction: column;
 }

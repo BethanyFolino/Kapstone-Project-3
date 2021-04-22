@@ -100,7 +100,7 @@ const SearchResults = () => {
         </form> */}
         <Form onSubmit={(e) => onSubmit(e)}>
   <Form.Group controlId="formBasicEmail">
-    <Form.Label>Search</Form.Label>
+    {/* <Form.Label>Search</Form.Label> */}
     <Form.Control type="text" name='Search' placeholder="Ex: Lion King" onChange={handleChange}/>
     
   </Form.Group>
