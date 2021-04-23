@@ -35,7 +35,7 @@ const Profile = ({
   };
 
   return (
-    <Fragment className>
+    <Fragment>
       <div className='profile'>
         <div className='profile-item'>
       <h1>Welcome {user && user.name}</h1>
@@ -56,11 +56,11 @@ const Profile = ({
       </div>
       <Fragment>
         
-        <p>
+        <p className='about-item'>
           Enter your favorite movies, games, and tv series; and a fun fact about
           yourself.
         </p>
-        <small>* = required field</small>
+    
 
         {/* <form className="form" onSubmit={(e) => onSubmit(e)}>
           <div className="form-group">

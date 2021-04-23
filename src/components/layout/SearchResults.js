@@ -84,7 +84,7 @@ const SearchResults = () => {
   //   };
   return (
     <Fragment>
-      <div className="searchresults">
+      <div className="about-item">
         Search for your favorite Movies, TV Shows, and Games!
       </div>
       <div className="search">

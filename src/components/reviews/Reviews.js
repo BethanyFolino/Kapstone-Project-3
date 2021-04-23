@@ -9,7 +9,7 @@ import ReviewForm from "./ReviewForm";
 const Reviews = ({ getReviews, review: { reviews, loading }, imdbID }) => {
   useEffect(() => {
     getReviews();
-  }, [getReviews]);
+  }, []);
 
  
 

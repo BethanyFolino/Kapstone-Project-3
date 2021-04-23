@@ -27,6 +27,7 @@ const Login = ({ login, isAuthenticated }) => {
   }
   return (
     <Fragment>
+      <div className='about-item'>
       <div container>
         <h7>Login here</h7>
         
@@ -66,13 +67,12 @@ const Login = ({ login, isAuthenticated }) => {
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password" name='password' value={password} onChange={(e) => handleChange(e)} required/>
   </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
+ 
   <Button variant="primary" type="submit">
     Submit
   </Button>
 </Form>
+      </div>
       </div>
     </Fragment>
   );

@@ -35,6 +35,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   return (
     <Fragment>
       <div container>
+        <div className='about-item'>
         <h7>Sign up here</h7>
 
         {/* <form id="signup-form" onSubmit={(e) => onSubmit(e)}>
@@ -96,7 +97,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
               name='email'
@@ -130,14 +131,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               required
             />
           </Form.Group>
-
-          <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
           <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form>
+      </div>
       </div>
     </Fragment>
   );
