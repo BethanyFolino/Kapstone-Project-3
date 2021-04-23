@@ -28,6 +28,7 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
       {/* reviews - imdbID exists here */}
       {/* <ReviewForm imdbID={imdbID} />
       <Reviews imdbID={imdbID} />  */}
+      <div className='movie-results'>
       <Card className="our-movies" style={{ width: "18rem" }}>
         <Card.Img variant="top" src={Poster} />
         <Card.Body>
@@ -61,6 +62,7 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
     </Card.Text>
   </Card.Body>
 </Card>
+</div>
     </>
   );
 };

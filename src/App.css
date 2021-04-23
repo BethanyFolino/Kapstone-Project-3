@@ -67,11 +67,18 @@
   background-color: antiquewhite;
 }
 
-.our-movies card {
+.our-movies {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
+.movie-results {
+ flex-direction: row;
+ flex-wrap: wrap;
+ 
+}
+
 
 .root {
   background-image: url(../src/images//image.jpg);
@@ -119,3 +126,23 @@
   display: flex;
   flex-direction: column;
 }
+
+.profile {
+  color: green;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+
+}
+.profile-item {
+  background-color: antiquewhite;
+  color: green;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 50%;
+  align-items: center;
+}
+
+

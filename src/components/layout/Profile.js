@@ -18,10 +18,10 @@ const Profile = ({
   }, [getCurrentProfile]);
 
   const [formData, setFormData] = useState({
-    bio: profile.bio,
-    favoritemovie: profile.favoritemovie,
-    favoritegame: profile.favoritegame,
-    favoritetvseries: profile.favoritetvseries,
+    bio: '',
+    favoritemovie: '',
+    favoritegame: '',
+    favoritetvseries: ''
   });
 
   const { bio, favoritemovie, favoritegame, favoritetvseries } = formData;
@@ -35,21 +35,27 @@ const Profile = ({
   };
 
   return (
-    <Fragment>
+    <Fragment className>
+      <div className='profile'>
+        <div className='profile-item'>
       <h1>Welcome {user && user.name}</h1>
+      <h1>Create your profile!</h1>
+      </div>
       {profile ? (
         <div>
-          <h3>A little bit about myself:{profile.bio}</h3>
+          {/* <h3>A little bit about myself:{profile.bio}</h3>
           <h2>Favorite Movie:{profile.favoritemovie}</h2>
           <h2>Favorite Game:{profile.favoritegame}</h2>
-          <h2>Favorite TV Series:{profile.favoritetvseries}</h2>
+          <h2>Favorite TV Series:{profile.favoritetvseries}</h2> */}
+       
         </div>
       ) : null}
       {/* {profile !== null ? (
         <Fragment>has</Fragment>
       ) : ( */}
+      </div>
       <Fragment>
-        <h1>Create your profile!</h1>
+        
         <p>
           Enter your favorite movies, games, and tv series; and a fun fact about
           yourself.
