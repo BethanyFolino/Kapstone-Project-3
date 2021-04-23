@@ -52,6 +52,7 @@ const Login = ({ login, isAuthenticated }) => {
           />
           
           <button type="submit">Login</button>
+<<<<<<< Updated upstream
         </form> */}
         <Form onSubmit={(e) => onSubmit(e)}>
   <Form.Group controlId="formBasicEmail">
@@ -75,6 +76,11 @@ const Login = ({ login, isAuthenticated }) => {
 </Form>
       </div>
 
+=======
+        </form>
+    </div>
+     
+>>>>>>> Stashed changes
     </Fragment>
   );
 };
