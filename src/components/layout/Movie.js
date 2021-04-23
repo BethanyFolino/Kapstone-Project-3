@@ -26,7 +26,6 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
       <div>{likes}</div>
       <button onClick={likeTheMovie}>Like</button>
       {/* reviews - imdbID exists here */}
-<<<<<<< Updated upstream
       {/* <ReviewForm imdbID={imdbID} />
       <Reviews imdbID={imdbID} />  */}
       <Card className="our-movies" style={{ width: "18rem" }}>
@@ -45,7 +44,6 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
           </Card.Text>
         </Card.Body>
       </Card>
-=======
       <ReviewForm imdbID={imdbID} />
       <Reviews imdbID={imdbID} /> 
       <Card style={{ width: '18rem' }}>
@@ -63,7 +61,6 @@ const Movie = ({ Title, Year, Poster, imdbID }) => {
     </Card.Text>
   </Card.Body>
 </Card>
->>>>>>> Stashed changes
     </>
   );
 };
