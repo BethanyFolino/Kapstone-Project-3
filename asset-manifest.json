@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/BethanyFolino/Kapstone-Project-3/static/css/main.bf76557d.chunk.css",
-    "main.js": "/BethanyFolino/Kapstone-Project-3/static/js/main.a00bd263.chunk.js",
-    "main.js.map": "/BethanyFolino/Kapstone-Project-3/static/js/main.a00bd263.chunk.js.map",
-    "runtime-main.js": "/BethanyFolino/Kapstone-Project-3/static/js/runtime-main.9d562d0e.js",
-    "runtime-main.js.map": "/BethanyFolino/Kapstone-Project-3/static/js/runtime-main.9d562d0e.js.map",
-    "static/css/2.4c97ca4f.chunk.css": "/BethanyFolino/Kapstone-Project-3/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.d2cd032a.chunk.js": "/BethanyFolino/Kapstone-Project-3/static/js/2.d2cd032a.chunk.js",
-    "static/js/2.d2cd032a.chunk.js.map": "/BethanyFolino/Kapstone-Project-3/static/js/2.d2cd032a.chunk.js.map",
-    "index.html": "/BethanyFolino/Kapstone-Project-3/index.html",
-    "static/css/2.4c97ca4f.chunk.css.map": "/BethanyFolino/Kapstone-Project-3/static/css/2.4c97ca4f.chunk.css.map",
-    "static/css/main.bf76557d.chunk.css.map": "/BethanyFolino/Kapstone-Project-3/static/css/main.bf76557d.chunk.css.map",
-    "static/js/2.d2cd032a.chunk.js.LICENSE.txt": "/BethanyFolino/Kapstone-Project-3/static/js/2.d2cd032a.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/BethanyFolino/Kapstone-Project-3/static/media/image.c0335013.jpg"
+    "main.css": "/Kapstone-Project-3/static/css/main.3ef5cc62.chunk.css",
+    "main.js": "/Kapstone-Project-3/static/js/main.a00bd263.chunk.js",
+    "main.js.map": "/Kapstone-Project-3/static/js/main.a00bd263.chunk.js.map",
+    "runtime-main.js": "/Kapstone-Project-3/static/js/runtime-main.04733b2c.js",
+    "runtime-main.js.map": "/Kapstone-Project-3/static/js/runtime-main.04733b2c.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/Kapstone-Project-3/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.d2cd032a.chunk.js": "/Kapstone-Project-3/static/js/2.d2cd032a.chunk.js",
+    "static/js/2.d2cd032a.chunk.js.map": "/Kapstone-Project-3/static/js/2.d2cd032a.chunk.js.map",
+    "index.html": "/Kapstone-Project-3/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/Kapstone-Project-3/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.3ef5cc62.chunk.css.map": "/Kapstone-Project-3/static/css/main.3ef5cc62.chunk.css.map",
+    "static/js/2.d2cd032a.chunk.js.LICENSE.txt": "/Kapstone-Project-3/static/js/2.d2cd032a.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/Kapstone-Project-3/static/media/image.c0335013.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9d562d0e.js",
+    "static/js/runtime-main.04733b2c.js",
     "static/css/2.4c97ca4f.chunk.css",
     "static/js/2.d2cd032a.chunk.js",
-    "static/css/main.bf76557d.chunk.css",
+    "static/css/main.3ef5cc62.chunk.css",
     "static/js/main.a00bd263.chunk.js"
   ]
 }
