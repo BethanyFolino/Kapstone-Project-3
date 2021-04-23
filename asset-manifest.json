@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/BethanyFolino/Kapstone-Project-3/static/css/main.bf76557d.chunk.css",
-    "main.js": "/BethanyFolino/Kapstone-Project-3/static/js/main.fbf462a1.chunk.js",
-    "main.js.map": "/BethanyFolino/Kapstone-Project-3/static/js/main.fbf462a1.chunk.js.map",
+    "main.js": "/BethanyFolino/Kapstone-Project-3/static/js/main.a00bd263.chunk.js",
+    "main.js.map": "/BethanyFolino/Kapstone-Project-3/static/js/main.a00bd263.chunk.js.map",
     "runtime-main.js": "/BethanyFolino/Kapstone-Project-3/static/js/runtime-main.9d562d0e.js",
     "runtime-main.js.map": "/BethanyFolino/Kapstone-Project-3/static/js/runtime-main.9d562d0e.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/BethanyFolino/Kapstone-Project-3/static/css/2.4c97ca4f.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.4c97ca4f.chunk.css",
     "static/js/2.d2cd032a.chunk.js",
     "static/css/main.bf76557d.chunk.css",
-    "static/js/main.fbf462a1.chunk.js"
+    "static/js/main.a00bd263.chunk.js"
   ]
 }
