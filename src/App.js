@@ -27,7 +27,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Router basename="/Kapstone-Project-3">
+      <Router basename="/Kapstone-Project-3/">
         <Fragment>
           <Navigation />
           <Route exact path="/" component={Base} />

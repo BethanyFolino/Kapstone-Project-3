@@ -21,3 +21,14 @@ What didn't go well - errors early on with first API because it lacked documenta
 What we got done - finished setting up components for front end, implemented 3rd party API, connected store to Login and to Registration, added review schema to back end, added all necessary endpoints (GET, PUT, POST, DELETE), added reviews, added search functionality.
 
 What we are doing next - make it so we can filter through both the 3rd party API and our database with one search so reviews will come up for items that get searched for, import our image to our front page/all pages?, icon on navbar for profile, profile component, profile schema, import bootstrap and designs, filter search results by movie/show/game, error handling with obvious 3rd party API bugs, deploy.
+
+
+Week 3: 
+
+What went well - Continued progression within our group communication, continued ability to redirect after set backs, created new schema  to be able to create and save reviews. We did a good job on our presentation as a team. 
+
+What didn't go well - Could not get the profile state to hold after creating profile, visual bugs with bootstrap. diifuclty with deploying our applications front-end. impplemeting likes for movies. 
+
+What we got done - Finished review schema, added like schema for mvoies => able to like on postman , but not on front end, added bootstrap and styling to all pages and components, cleaned up code. 
+
+What we are doing next - Finish getting our application deployed, fix visual bugs with bootstrap and styling, fix state with profile, fix liking movie feature. 

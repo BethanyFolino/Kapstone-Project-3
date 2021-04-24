@@ -91,9 +91,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               onChange={(e) => handleChange(e)}
               required
             />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+           
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
@@ -106,6 +104,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               onChange={(e) => handleChange(e)}
               required
             />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
@@ -121,7 +122,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Confirm Password</Form.Label>
             <Form.Control
               type="password"
               name='password2'
