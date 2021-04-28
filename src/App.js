@@ -4,7 +4,7 @@ import Navigation from "./components/layout/Navigation";
 import Base from "./components/layout/Base";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Alert from "./components/layout/Alert";
 import Dashboard from "./components/dashboard/Dashboard";
 import PrivateRoute from "./components/routing/PrivateRoute";
@@ -27,7 +27,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Router basename="/Kapstone-Project-3/">
+      
         <Fragment>
           <Navigation />
           <Route exact path="/" component={Base} />
@@ -40,7 +40,7 @@ const App = () => {
             <PrivateRoute exact path="/about" component={About} />
           </Switch>
         </Fragment>
-      </Router>
+
     </Provider>
   );
 };
